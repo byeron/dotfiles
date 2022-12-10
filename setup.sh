@@ -18,4 +18,4 @@ fi
 git clone https://github.com/byeron/dotfiles.git /home/$USER/dotfiles
 ln -sf /home/$USER/dotfiles/profile /home/$USER/.profile
 
-exec source /home/$USER/.profile
+. /home/$USER/.profile
