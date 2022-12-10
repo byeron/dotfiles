@@ -11,6 +11,6 @@ echo $PASSWORD | sudo -kS apt install -y build-essential procps curl file git
 
 # brew
 echo "\n" | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /home/${USER}/.profile
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/${USER}/.profile
+echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /home/$USER/.profile
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/$USER/.profile
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
