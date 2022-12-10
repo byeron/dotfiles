@@ -19,4 +19,6 @@ git clone https://github.com/byeron/dotfiles.git /home/$USER/dotfiles
 ln -sf /home/$USER/dotfiles/profile /home/$USER/.profile
 
 # . /home/$USER/.profile
-/home/linuxbrew/.linuxbrew/bin/brew shellenv
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+brew -v
