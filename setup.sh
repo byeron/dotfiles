@@ -15,4 +15,4 @@ ln -sf /home/$USER/.profile /home/$USER/dotfiles/profile
 # brew
 echo "\n" | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-. /home/$USER/.progile
+. /home/$USER/.profile
