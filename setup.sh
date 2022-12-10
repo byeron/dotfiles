@@ -1,3 +1,5 @@
+#!/bin/bash
+
 output=$(echo $PASSWORD | sudo -kS echo 2>&1 > /dev/null)
 if [ $? -ne 0 ]; then
 	echo "The password is incorrect"
@@ -16,4 +18,5 @@ fi
 git clone https://github.com/byeron/dotfiles.git /home/$USER/dotfiles
 ln -sf /home/$USER/dotfiles/profile /home/$USER/.profile
 
-. /home/$USER/.profile
+# . /home/$USER/.profile
+/home/linuxbrew/.linuxbrew/bin/brew shellenv
