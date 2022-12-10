@@ -15,4 +15,4 @@ user=$(whoami)
 echo "\n" | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo $PASSWORD | sudo -kS echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /home/$user/.profile
 echo $PASSWORD | sudo -kS echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/$user/.profile
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+echo $PASSWORD | sudo -kS eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
