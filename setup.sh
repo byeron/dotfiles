@@ -18,9 +18,9 @@ fi
 git clone https://github.com/byeron/dotfiles.git /home/$USER/dotfiles
 ln -sf /home/$USER/dotfiles/profile /home/$USER/.profile
 
-# . /home/$USER/.profile
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+. $(/home/$USER/.profile)
+# eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
-alias brew="/home/linuxbrew/.linuxbrew/bin/brew"
+# alias brew="/home/linuxbrew/.linuxbrew/bin/brew"
 brew -v
-brew install bat
+# brew install bat
