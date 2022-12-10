@@ -18,7 +18,4 @@ fi
 git clone https://github.com/byeron/dotfiles.git /home/$USER/dotfiles
 ln -sf /home/$USER/dotfiles/profile /home/$USER/.profile
 
-brew -v
-
-# alias brew="/home/linuxbrew/.linuxbrew/bin/brew"
-# brew -v
+exec source /home/$USER/.profile
