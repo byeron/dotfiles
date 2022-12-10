@@ -7,3 +7,7 @@ if [ $? -ne 0 ]; then
 fi
 
 echo $PASSWORD | sudo -kS apt update
+echo $PASSWORD | sudo -kS apt install build-essential procps curl file git
+
+# brew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
