@@ -10,6 +10,7 @@ echo $PASSWORD | sudo -kS apt update
 echo $PASSWORD | sudo -kS apt install -y build-essential procps curl file git
 
 git clone https://github.com/byeron/dotfiles.git /home/$USER/dotfiles
+ln -sf /home/$USER/.profile /home/$USER/dotfiles/profile
 
 # brew
 echo "\n" | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
