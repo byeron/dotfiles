@@ -12,11 +12,13 @@ echo $PASSWORD | sudo -kS apt install -y build-essential procps curl file git
 # brew
 echo "\n" | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# if [ -d /home/$USER/dotfiles ]; then
-# 	rm -rf /home/$USER/dotfiles
-# fi
-# git clone https://github.com/byeron/dotfiles.git /home/$USER/dotfiles
-# ln -sf /home/$USER/dotfiles/profile /home/$USER/.profile
+if [ -d /home/$USER/dotfiles ]; then
+	rm -rf /home/$USER/dotfiles
+fi
+git clone https://github.com/byeron/dotfiles.git /home/$USER/dotfiles
+ln -sf /home/$USER/dotfiles/profile /home/$USER/.profile
 
-alias brew="/home/linuxbrew/.linuxbrew/bin/brew"
-brew
+brew -v
+
+# alias brew="/home/linuxbrew/.linuxbrew/bin/brew"
+# brew -v
