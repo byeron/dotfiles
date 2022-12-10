@@ -23,3 +23,4 @@ ln -sf /home/$USER/dotfiles/profile /home/$USER/.profile
 
 alias brew="/home/linuxbrew/.linuxbrew/bin/brew"
 brew -v
+brew install hello
