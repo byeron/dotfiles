@@ -13,5 +13,5 @@ echo $PASSWORD | sudo -kS apt install -y build-essential procps curl file git
 echo "\n" | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 git clone https://github.com/byeron/dotfiles.git /home/$USER/dotfiles
-ln -sf /home/$USER/.profile /home/$USER/dotfiles/profile
+ln -sf /home/$USER/dotfiles/profile /home/$USER/.profile
 . /home/$USER/.profile
