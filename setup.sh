@@ -21,4 +21,5 @@ ln -sf /home/$USER/dotfiles/profile /home/$USER/.profile
 # . /home/$USER/.profile
 # eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
-/home/linuxbrew/.linuxbrew/bin/brew -v
+alias brew="/home/linuxbrew/.linuxbrew/bin/brew"
+brew -v
