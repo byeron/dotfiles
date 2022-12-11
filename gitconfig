@@ -1,0 +1,10 @@
+[core]
+	editor = vim
+[diff]
+	tool = vim
+[difftool]
+	prompt = false
+[commit]
+	template = $HOME/.gitmessage.txt
+[credential]
+	helper = cache --timeout=86400
