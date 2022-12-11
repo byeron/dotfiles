@@ -136,3 +136,6 @@ tre() { command tre "$@" -e vim && source "/tmp/tre_aliases_$USER" 2>/dev/null; 
 
 # rust
 source "$HOME/.cargo/env"
+
+# fzf scripts
+source "$HOME/.dotfiles/fzf/scripts.sh"
