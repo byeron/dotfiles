@@ -1,5 +1,6 @@
 brew "bat"
 brew "ripgrep"
+brew "tree"
 # brew "byobu"
 # brew "fzf"
 # brew "ghq"
