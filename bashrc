@@ -124,3 +124,6 @@ fi
 
 # zoxide
 eval "$(zoxide init bash)"
+
+# starship
+eval "$(starship init bash)"
