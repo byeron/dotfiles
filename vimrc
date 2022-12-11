@@ -12,6 +12,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'vim-scripts/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'jreybert/vimagit'
+Plug 'tomasr/molokai'
 call plug#end()
 
 let mapleader = "\<space>"
