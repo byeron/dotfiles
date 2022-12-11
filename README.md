@@ -5,7 +5,7 @@ for Ubuntu
 `sudo apt install curl`
 
 # Usege
-`PASSWORD=hogehoge bash -c "$(curl -fsSL https://raw.githubusercontent.com/byeron/dotfiles/main/setup.sh)"`
+`USER=hogehoge PASSWORD=fugafuga bash -c "$(curl -fsSL https://raw.githubusercontent.com/byeron/dotfiles/main/setup.sh)"`
 
 # tips
 - https://vimawesome.com/
