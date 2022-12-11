@@ -1,6 +1,6 @@
 [character]
-error_symbol = "(*´▽`*)[>](bold red)"
-success_symbol = "(´• ω •`)[>](bold green)"
+error_symbol = "[>](bold red)"
+success_symbol = "(´• ω •`)[(´• ω •`)](bold green)"
 
 [directory]
 truncation_length = 256
