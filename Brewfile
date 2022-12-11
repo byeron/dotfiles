@@ -15,11 +15,12 @@ brew "zoxide"
 brew "poetry"
 brew "tmux"
 brew "node"
-brew "powerline-go"
 brew "wget"
 brew "unzip"
 brew "byobu"
 brew "fontconfig"
+brew "powerline-go"
+brew "starship"
 
 # tap sanemat/font
 # brew "sanemat/font/ricty", args: ["with-powerline"]
