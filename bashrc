@@ -130,3 +130,6 @@ eval "$(starship init bash)"
 
 # the fxxk
 eval $(thefuck --alias)
+
+# tre-command
+tre() { command tre "$@" -e vim && source "/tmp/tre_aliases_$USER" 2>/dev/null; }

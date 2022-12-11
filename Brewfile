@@ -22,7 +22,7 @@ brew "fontconfig"
 brew "starship"
 brew "docker-compose"
 brew "thefuck"
-brew "tre"
+brew "tre-command"
 
 # tap sanemat/font
 # brew "sanemat/font/ricty", args: ["with-powerline"]
