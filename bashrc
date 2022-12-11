@@ -127,3 +127,6 @@ eval "$(zoxide init bash)"
 
 # starship
 eval "$(starship init bash)"
+
+# the fxxk
+eval $(thefuck --alias)
