@@ -19,9 +19,10 @@ brew "wget"
 brew "unzip"
 brew "byobu"
 brew "fontconfig"
-brew "powerline-go"
 brew "starship"
+brew "docker-compose"
 
 # tap sanemat/font
 # brew "sanemat/font/ricty", args: ["with-powerline"]
 # brew "z"
+# brew "powerline-go"
