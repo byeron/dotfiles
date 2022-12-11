@@ -1,7 +1,3 @@
-[character]
-error_symbol = "[>](bold red)"
-success_symbol = "(´• ω •`)[(´• ω •`)](bold green)"
-
 [directory]
 truncation_length = 256
 truncate_to_repo = false
