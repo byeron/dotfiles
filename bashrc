@@ -117,8 +117,10 @@ if ! shopt -oq posix; then
 fi
 
 # for rupa's z command
-. `brew --prefix`/etc/profile.d/z.sh
-    function precmd () {
-    _z --add "$(pwd -P)"
-}
+# . `brew --prefix`/etc/profile.d/z.sh
+#     function precmd () {
+#     _z --add "$(pwd -P)"
+# }
 
+# for zoxide (zi command)
+eval "$(zoxide init bash)"
