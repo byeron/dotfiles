@@ -9,4 +9,4 @@ source /home/$USER/.profile
 ln -sf /home/$USER/dotfiles/Brewfile /home/$USER/Brewfile
 
 brew bundle --file=/home/$USER/Brewfile
-$(brew --prefix)/opt/fzf/install
+yes y | $(brew --prefix)/opt/fzf/install
