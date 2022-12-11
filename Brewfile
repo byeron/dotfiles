@@ -21,6 +21,8 @@ brew "byobu"
 brew "fontconfig"
 brew "starship"
 brew "docker-compose"
+brew "thefuck"
+brew "tre"
 
 # tap sanemat/font
 # brew "sanemat/font/ricty", args: ["with-powerline"]
