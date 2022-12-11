@@ -1,5 +1,3 @@
-# tap sanemat/font
-# brew "sanemat/font/ricty", args: ["with-powerline"]
 brew "bat"
 brew "fzf"
 brew "ripgrep"
@@ -13,11 +11,14 @@ brew "docker"
 brew "jq"
 brew "ctop"
 brew "asdf"
-# brew "z"
 brew "zoxide"
 brew "poetry"
 brew "tmux"
 brew "node"
 brew "powerline-go"
 brew "wget"
-# brew "byobu"
+brew "byobu"
+
+# tap sanemat/font
+# brew "sanemat/font/ricty", args: ["with-powerline"]
+# brew "z"
