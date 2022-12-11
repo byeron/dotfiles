@@ -19,6 +19,7 @@ brew "powerline-go"
 brew "wget"
 brew "unzip"
 brew "byobu"
+brew "fontconfig"
 
 # tap sanemat/font
 # brew "sanemat/font/ricty", args: ["with-powerline"]
