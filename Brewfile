@@ -21,6 +21,7 @@ brew "fontconfig"
 brew "starship"
 brew "thefuck"
 brew "tre-command"
+brew "git-delta"
 
 # tap sanemat/font
 # brew "sanemat/font/ricty", args: ["with-powerline"]
