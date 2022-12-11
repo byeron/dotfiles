@@ -17,6 +17,7 @@ brew "tmux"
 brew "node"
 brew "powerline-go"
 brew "wget"
+brew "unzip"
 brew "byobu"
 
 # tap sanemat/font
