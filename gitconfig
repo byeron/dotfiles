@@ -8,6 +8,3 @@
 	template = ~/.gitmessage.txt
 [credential]
 	helper = cache --timeout=86400
-[user]
-	email = disce.uno@gmail.com
-	name = byeron
