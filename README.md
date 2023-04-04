@@ -7,6 +7,12 @@ for Ubuntu
 # Usege
 `USER=hogehoge PASSWORD=fugafuga bash -c "$(curl -fsSL https://raw.githubusercontent.com/byeron/dotfiles/main/setup.sh)"`
 
+## after running script
+```
+. .profile
+. .bashrc
+```
+
 # tips
 - https://vimawesome.com/
 - https://formulae.brew.sh/
