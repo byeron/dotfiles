@@ -10,7 +10,7 @@ echo $PASSWORD | sudo -kS apt update
 echo $PASSWORD | sudo -kS apt install -y build-essential procps curl file git
 
 # brew
-echo "\n" | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" --prefix=/home/linuxbrew/.linuxbrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 
 if [ -d /home/$USER/dotfiles ]; then
