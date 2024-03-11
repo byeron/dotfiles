@@ -14,6 +14,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'jreybert/vimagit'
 Plug 'tomasr/molokai'
 
+Plug 'Shougo/ddc.vim'
+Plug 'vim-denops/denops.vim'
+
 Plug 'Shougo/ddc-ui-native'
 Plug 'Shougo/ddc-source-around'
 
