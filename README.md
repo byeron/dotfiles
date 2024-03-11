@@ -1,6 +1,11 @@
 # dotfiles
 for Ubuntu
 
+# Change folder name to english
+```
+LANG=C xdg-user-dirs-gtk-update
+```
+
 # Prerequired
 `sudo apt install curl`
 
