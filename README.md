@@ -23,6 +23,9 @@ USER=hogehoge PASSWORD=fugafuga bash -c "$(curl -fsSL https://raw.githubusercont
 ## setup vim (once)
 - execute `:PlugInstall` (molokai will be install then)
 
+## setup byobu prefix
+- ref: `https://pc.watch.impress.co.jp/docs/column/ubuntu/1444004.html`
+
 # tips
 - https://vimawesome.com/
 - https://formulae.brew.sh/
