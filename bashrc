@@ -105,6 +105,14 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+alias vim="nvim"
+
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+. $HOME/.dotfiles/fzf/scripts.sh
+
+export XDG_CONFIG_HOME=~/.config
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
