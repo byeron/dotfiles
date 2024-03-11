@@ -105,7 +105,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-alias vim="nvim"
+# alias vim="nvim"
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -132,6 +132,7 @@ fi
 
 # zoxide
 eval "$(zoxide init bash)"
+alias z="zi"
 
 # starship
 eval "$(starship init bash)"
@@ -147,5 +148,3 @@ tre() { command tre "$@" -e vim && source "/tmp/tre_aliases_$USER" 2>/dev/null; 
 
 # fzf scripts
 source "$HOME/dotfiles/fzf/scripts.sh"
-
-eval "$(thefuck --alias)"
