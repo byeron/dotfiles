@@ -5,13 +5,18 @@ for Ubuntu
 `sudo apt install curl`
 
 # Usege
-`USER=hogehoge PASSWORD=fugafuga bash -c "$(curl -fsSL https://raw.githubusercontent.com/byeron/dotfiles/main/setup.sh)"`
+```
+USER=hogehoge PASSWORD=fugafuga bash -c "$(curl -fsSL https://raw.githubusercontent.com/byeron/dotfiles/main/setup.sh)"
+```
 
 ## after running script
 ```
 . .profile
 . .bashrc
 ```
+
+## setup vim (once)
+- execute `:PlugInstall` (molokai will be install then)
 
 # tips
 - https://vimawesome.com/
