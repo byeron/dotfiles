@@ -5,7 +5,7 @@ brew "tree"
 brew "htop"
 brew "fd"
 brew "ghq"
-brew "vim"
+# brew "vim"
 brew "jq"
 brew "ctop"
 brew "zoxide"
@@ -21,6 +21,7 @@ brew "thefuck"
 brew "tre-command"
 brew "git-delta"
 brew "neovim"
+brew "deno"
 
 # tap sanemat/font
 # brew "sanemat/font/ricty", args: ["with-powerline"]
