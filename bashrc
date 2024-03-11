@@ -105,14 +105,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# alias vim="nvim"
-
-# fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-. $HOME/.dotfiles/fzf/scripts.sh
-
-export XDG_CONFIG_HOME=~/.config
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -124,11 +116,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# for rupa's z command
-# . `brew --prefix`/etc/profile.d/z.sh
-#     function precmd () {
-#     _z --add "$(pwd -P)"
-# }
+export XDG_CONFIG_HOME=~/.config
+
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+. $HOME/.dotfiles/fzf/scripts.sh
 
 # zoxide
 eval "$(zoxide init bash)"
@@ -142,9 +134,6 @@ eval $(thefuck --alias)
 
 # tre-command
 tre() { command tre "$@" -e vim && source "/tmp/tre_aliases_$USER" 2>/dev/null; }
-
-# rust
-# source "$HOME/.cargo/env"
 
 # fzf scripts
 source "$HOME/dotfiles/fzf/scripts.sh"
