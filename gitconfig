@@ -9,6 +9,6 @@
 [credential]
 	helper = cache --timeout=86400
 [core]
-  pager = delta --theme='Monokai Extended'
+	pager = delta --theme='Monokai Extended'
 [interactive]
-  diffFilter = delta --color-only
+	diffFilter = delta --color-only
