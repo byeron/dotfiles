@@ -19,4 +19,4 @@ git clone https://github.com/byeron/dotfiles.git /home/$USER/dotfiles
 ln -sf /home/$USER/dotfiles/profile /home/$USER/.profile
 
 # rust
-curl https://sh.rustup.rs -sSf | sh -s -- -y
+# curl https://sh.rustup.rs -sSf | sh -s -- -y
