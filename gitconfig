@@ -1,6 +1,6 @@
 [core]
 	editor = vim
-	pager = delta # for git-delta
+	pager = delta --theme="Monokai Extended" # for git-delta
 [diff]
 	tool = vimdiff
 [difftool]
