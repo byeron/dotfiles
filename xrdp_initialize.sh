@@ -22,7 +22,13 @@ echo $PASSWORD | sudo sed -i_orig -e 's/startwm/startubuntu/g' /etc/xrdp/sesman.
 echo $PASSWORD | sudo sed -i -e 's/FuseMountName=thinclient_drives/FuseMountName=shared-drives/g' /etc/xrdp/sesman.ini
 
 # Changed the allowed_users
+if [ ! -e /etc/X11/Xwrapper.config ]; then
+echo $PASSWORD | sudo cat >> /etc/X11/Xwrapper.config << EOF
+allowed_users=anybody
+EOF
+else
 echo $PASSWORD | sudo sed -i_orig -e 's/allowed_users=console/allowed_users=anybody/g' /etc/X11/Xwrapper.config
+fi
 
 # Configure the policy xrdp session
 echo $PASSWORD | sudo cat > /etc/polkit-1/localauthority/50-local.d/45-allow-colord.pkla <<EOF
