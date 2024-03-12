@@ -5,32 +5,41 @@ echo $PASSWORD | sudo apt install -y xrdp
 
 # ref: https://gihyo.jp/admin/serial/01/ubuntu-recipe/0621
 
-# Add script to setup the Ubuntu or Pop!_OS session properly
-if [ -f /etc/os-release ]; then
-    . /etc/os-release
-    if [ "$NAME" = "Ubuntu" ]; then
-        if [ ! -e /etc/xrdp/startubuntu.sh ]; then
-            cat >> /etc/xrdp/startubuntu.sh << EOF
+if [ ! -e /etc/xrdp/startubuntu.sh ]; then
+cat >> /etc/xrdp/startubuntu.sh << EOF
 #!/bin/sh
 export GNOME_SHELL_SESSION_MODE=ubuntu
 export XDG_CURRENT_DESKTOP=ubuntu:GNOME
 exec /etc/xrdp/startwm.sh
 EOF
-            chmod a+x /etc/xrdp/startubuntu.sh
-        fi
-    elif [ "$NAME" = "Pop!_OS" ]; then
-        if [ ! -e /etc/xrdp/startpop.sh ]; then
-            cat >> /etc/xrdp/startpop.sh << EOF
-#!/bin/sh
-export GNOME_SHELL_SESSION_MODE=pop
-export GDMSESSION=pop
-export XDG_CURRENT_DESKTOP=pop:GNOME
-exec /etc/xrdp/startwm.sh
-EOF
-            chmod a+x /etc/xrdp/startpop.sh
-        fi
-    fi
-fi
+chmod a+x /etc/xrdp/startubuntu.sh
+
+# Add script to setup the Ubuntu or Pop!_OS session properly
+#if [ -f /etc/os-release ]; then
+#    . /etc/os-release
+#    if [ "$NAME" = "Ubuntu" ]; then
+#        if [ ! -e /etc/xrdp/startubuntu.sh ]; then
+#            cat >> /etc/xrdp/startubuntu.sh << EOF
+##!/bin/sh
+#export GNOME_SHELL_SESSION_MODE=ubuntu
+#export XDG_CURRENT_DESKTOP=ubuntu:GNOME
+#exec /etc/xrdp/startwm.sh
+#EOF
+#            chmod a+x /etc/xrdp/startubuntu.sh
+#        fi
+#    elif [ "$NAME" = "Pop!_OS" ]; then
+#        if [ ! -e /etc/xrdp/startpop.sh ]; then
+#            cat >> /etc/xrdp/startpop.sh << EOF
+##!/bin/sh
+#export GNOME_SHELL_SESSION_MODE=pop
+#export GDMSESSION=pop
+#export XDG_CURRENT_DESKTOP=pop:GNOME
+#exec /etc/xrdp/startwm.sh
+#EOF
+#            chmod a+x /etc/xrdp/startpop.sh
+#        fi
+#    fi
+#fi
 
 echo $PASSWORD | sudo sed -i_orig -e 's/startwm/startubuntu/g' /etc/xrdp/sesman.ini
 
