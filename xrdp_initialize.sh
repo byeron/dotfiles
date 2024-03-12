@@ -6,13 +6,13 @@ echo $PASSWORD | sudo apt install -y xrdp
 # ref: https://gihyo.jp/admin/serial/01/ubuntu-recipe/0621
 
 if [ ! -e /etc/xrdp/startubuntu.sh ]; then
-cat >> /etc/xrdp/startubuntu.sh << EOF
+echo $PASSWORD | sudo cat >> /etc/xrdp/startubuntu.sh << EOF
 #!/bin/sh
 export GNOME_SHELL_SESSION_MODE=ubuntu
 export XDG_CURRENT_DESKTOP=ubuntu:GNOME
 exec /etc/xrdp/startwm.sh
 EOF
-chmod a+x /etc/xrdp/startubuntu.sh
+echo $PASSWORD | sudo chmod a+x /etc/xrdp/startubuntu.sh
 
 # Add script to setup the Ubuntu or Pop!_OS session properly
 #if [ -f /etc/os-release ]; then
