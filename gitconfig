@@ -1,14 +1,108 @@
 [core]
 	editor = vim
+	pager = delta # for git-delta
 [diff]
-	tool = vim
+	tool = vimdiff
 [difftool]
 	prompt = false
 [commit]
-	template = ~/.gitmessage.txt
+	template = /home/deneb/.gitmessage.txt
 [credential]
 	helper = cache --timeout=86400
-[core]
-	pager = delta --theme='Monokai Extended'
-[interactive]
+[interactive] # for git-delta
 	diffFilter = delta --color-only
+[delta] # for git-delta
+	side-by-side = true
+	navigate = true
+	light = false
+[alias]
+	l = log --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(yellow)%h %Cgreen%cd %Cblue%cn %Creset%s'
+	ll = !git l --stat
+	lg = !git l --graph
+	lm = !git l --merges
+	# デフォルトで新しい順にする
+	b = branch --sort=-authordate
+	# 日付付きでリスト
+	bl = !git for-each-ref --sort=-authordate --format='%(authordate:short) %(refname)' refs/heads | sed 's/refs\\/heads\\///'
+	br = !git for-each-ref --sort=-authordate --format='%(authordate:short) %(refname)' refs/remotes | sed 's/refs\\/remotes\\///' | grep -v 'origin/HEAD'
+	# delete merged branch
+	dmb = !git branch --merged | egrep -v '\\*|master|main|dev' | xargs git branch -d
+	# delete local branch
+	dlb = !git bl | fzf --header '[delete local branch]' | awk '{ print $NF }' | xargs git branch -D
+	# delete remote branch
+	drb = !git br | fzf --header '[delete reteme branch]' | awk '{ print $NF }' | sed -r 's/([^\\/]+)\\/(.+)/\\1 \\2/g' | xargs git push -d 
+	co = checkout
+	cob = checkout -b
+	cot = checkout -t
+	staged = !git diff --name-only --cached | fzf -m --preview 'git diff --color=always HEAD {}'
+	unstaged = !git ls-files -m -o --exclude-standard | fzf -m --preview 'git diff --color=always {}'
+	a = !git unstaged | xargs git add && git s
+	ap = !git add -p $(git unstaged)
+	aa = !git add -A && git s
+	aaa = !git aa && git cm 'WIP'
+	aaaa = !git cob "wip-$(date +%s)" && git add -A && git cm "emergency" -n && git psu
+
+	# aicommits
+	ac = !git dcn && aic
+	aac = !git aa && git dcn && aic
+
+	c = commit
+	cv = commit -v
+	cm = commit -m
+	cam = commit --amend -m
+	can = commit --amend --no-edit
+	cav = commit --amend -v
+	cl = clean
+	d = diff
+	dc = diff --cached
+	dcn = !git --no-pager diff --cached
+	um = !git --no-pager diff --name-only --diff-filter=U
+	ft = fetch
+	ftp = fetch --prune
+	pl = pull
+	ps = push
+	psu = push -u origin HEAD
+
+	# https://onk.hatenablog.jp/entry/2022/12/18/000000
+	psf = push -f --force-with-lease --force-if-includes
+	info = remote show origin
+	s = status --short --branch
+	st = stash
+	stp = stash pop
+	stl = stash list
+	sta = stash apply
+	sw = switch
+	sww = switch -
+	swm = switch main
+	swd = switch dev
+	swc = switch -c
+	# switch local branch
+	swl = !git bl | fzf --no-sort | awk '{ print $NF }' | xargs git sw
+
+	# switch remote branch
+	swr = !git br | fzf --no-sort | awk '{ print $NF }' | sed -e "s%[^/]*/%%" | xargs git sw
+	r = !git staged | xargs git reset
+	rt = !git l | fzf --preview 'echo {} | awk \"{print \\$1 \\\"^ \\\" \\$1 }\" | xargs git diff --color=always' | awk '{ print $1 }' | xargs git reset && git s
+	ra = reset
+	rw = !git unstaged | xargs git co && git s
+	rh = reset --hard
+
+	# reset-hard to origin
+	rho = !git cbn | sed 's/\\.*/origin\\/&/' | xargs git rh
+	rhh = reset --hard HEAD
+	rr = reset @^1
+	rl = reflog show -n 20
+	rb = rebase
+	rba = rebase --abort
+	rbc = rebase --continue
+	rbi = rebase -i
+	rbh = rebase HEAD
+	rbo = rebase --onto
+	alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+	cbn = branch --show-current # rev-parse --abbrev-ref HEAD
+
+	# print alias
+	# https://blog.jicoman.info/2022/05/collection-of-git-aliases-that-i-often-use/
+	alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
+
+	# ref: https://miyaoka.dev/posts/2021-02-12-git-alias
