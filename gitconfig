@@ -1,6 +1,6 @@
 [core]
 	editor = vim
-	pager = delta --theme="Monokai Extended" # for git-delta
+	pager = delta # for git-delta
 [diff]
 	tool = vimdiff
 [difftool]
@@ -15,6 +15,7 @@
 	side-by-side = true
 	navigate = true
 	light = false
+	syntax-theme = Monokai Extended
 [alias]
 	l = log --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(yellow)%h %Cgreen%cd %Cblue%cn %Creset%s'
 	ll = !git l --stat
