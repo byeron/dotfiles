@@ -16,7 +16,7 @@ if [ ! -e /etc/xrdp/startubuntu.sh ] && [ ! -e /etc/xrdp/startpop.sh ]; then
         echo "#!/bin/sh" > startpop_tmp.sh
         echo "export GNOME_SHELL_SESSION_MODE=pop" >> startpop_tmp.sh
         echo "export XDG_CURRENT_DESKTOP=pop:GNOME" >> startpop_tmp.sh
-        echo "export GDM_SESSION=pop" >> startpop_tmp.sh
+        # echo "export GDM_SESSION=pop" >> startpop_tmp.sh
         echo "exec /etc/xrdp/startwm.sh" >> startpop_tmp.sh
         echo $PASSWORD | sudo -S mv startpop_tmp.sh /etc/xrdp/startpop.sh
         echo $PASSWORD | sudo -S chmod a+x /etc/xrdp/startpop.sh
