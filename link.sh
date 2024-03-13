@@ -13,3 +13,4 @@ ln -sf /home/$USER/dotfiles/gitmessage.txt /home/$USER/.gitmessage.txt
 ln -sf /home/$USER/dotfiles/xsessionrc /home/$USER/.xsessionrc
 
 ln -sfn /home/$USER/dotfiles/config/ /home/$USER/.config
+ln -sfn /home/$USER/dotfiles/fzf/ /home/$USER/fzf
