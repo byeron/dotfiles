@@ -29,7 +29,7 @@ echo $PASSWORD | sudo sed -i_orig -e 's/allowed_users=console/allowed_users=anyb
 fi
 
 # Configure the policy xrdp session
-if [ ! -e /etc/polkit-1/localauthority.conf.d/02-allow-colord.conf ]; then
+if [ -e /etc/polkit-1/localauthority.conf.d/02-allow-colord.conf ]; then
 echo $PASSWORD | sudo rm /etc/polkit-1/localauthority.conf.d/02-allow-colord.conf
 
 echo $PASSWORD | sudo cat > /etc/polkit-1/localauthority/50-local.d/45-allow-colord.pkla <<EOF
