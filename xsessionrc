@@ -1,3 +1,5 @@
 # for xrdp
 . ~/.profile
 . ~/.bashrc
+
+fcitx-autostart
