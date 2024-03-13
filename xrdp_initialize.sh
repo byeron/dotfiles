@@ -6,13 +6,13 @@ echo $PASSWORD | sudo apt install -y xrdp
 # ref: https://gihyo.jp/admin/serial/01/ubuntu-recipe/0621
 
 if [ ! -e /etc/xrdp/startubuntu.sh ]; then
-echo $PASSWORD | sudo cat >> /etc/xrdp/startubuntu.sh << EOF
-#!/bin/sh
-export GNOME_SHELL_SESSION_MODE=ubuntu
-export XDG_CURRENT_DESKTOP=ubuntu:GNOME
-exec /etc/xrdp/startwm.sh
-EOF
-echo $PASSWORD | sudo chmod a+x /etc/xrdp/startubuntu.sh
+    echo "#!/bin/sh" > startubuntu_tmp.sh
+    echo "export GNOME_SHELL_SESSION_MODE=ubuntu" >> startubuntu_tmp.sh
+    echo "export XDG_CURRENT_DESKTOP=ubuntu:GNOME" >> startubuntu_tmp.sh
+    echo "exec /etc/xrdp/startwm.sh" >> startubuntu_tmp.sh
+    echo $PASSWORD | sudo -S mv startubuntu_tmp.sh /etc/xrdp/startubuntu.sh
+    echo $PASSWORD | sudo -S chmod a+x /etc/xrdp/startubuntu.sh
+fi
 
 echo $PASSWORD | sudo sed -i_orig -e 's/startwm/startubuntu/g' /etc/xrdp/sesman.ini
 
