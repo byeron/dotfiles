@@ -11,6 +11,6 @@ ln -sf /home/$USER/dotfiles/vimrc /home/$USER/.vimrc
 ln -sf /home/$USER/dotfiles/gitconfig /home/$USER/.gitconfig
 ln -sf /home/$USER/dotfiles/gitmessage.txt /home/$USER/.gitmessage.txt
 ln -sf /home/$USER/dotfiles/xsessionrc /home/$USER/.xsessionrc
+ln -sf /home/$USER/dotfiles/fzf/scripts.sh /home/$USER/.fzf/script.sh
 
 ln -sfn /home/$USER/dotfiles/config/ /home/$USER/.config
-ln -sfn /home/$USER/dotfiles/fzf/ /home/$USER/fzf

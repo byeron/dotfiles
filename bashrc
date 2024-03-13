@@ -136,4 +136,4 @@ eval $(thefuck --alias)
 # tre() { command tre "$@" -e vim && source "/tmp/tre_aliases_$USER" 2>/dev/null; }
 
 # fzf scripts
-source "$HOME/dotfiles/fzf/scripts.sh"
+source "$HOME/dotfiles/.fzf/scripts.sh"
