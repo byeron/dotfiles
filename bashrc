@@ -120,7 +120,7 @@ export XDG_CONFIG_HOME=~/.config
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-. $HOME/.dotfiles/fzf/scripts.sh
+[ -f ~/.fzf/scripts.sh ] && source ~/.fzf/scripts.sh
 
 # zoxide
 eval "$(zoxide init bash)"
@@ -134,6 +134,3 @@ eval $(thefuck --alias)
 
 # tre-command
 # tre() { command tre "$@" -e vim && source "/tmp/tre_aliases_$USER" 2>/dev/null; }
-
-# fzf scripts
-source "$HOME/dotfiles/.fzf/scripts.sh"

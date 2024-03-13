@@ -17,3 +17,6 @@ echo \
 
 echo $PASSWORD | sudo apt update
 echo $PASSWORD | sudo apt -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+# 現在のユーザーを Docker グループに追加
+echo $PASSWORD | sudo usermod -aG docker $USER
