@@ -29,7 +29,9 @@ fi
 
 # Configure the policy xrdp session
 if [ -e /etc/polkit-1/localauthority.conf.d/02-allow-colord.conf ]; then
-echo $PASSWORD | sudo rm /etc/polkit-1/localauthority.conf.d/02-allow-colord.conf
+    echo $PASSWORD | sudo -S rm /etc/polkit-1/localauthority.conf.d/02-allow-colord.conf
+fi
+
 echo "[Allow Colord all Users]" > colord_tmp.pkla
 echo "Identity=unix-user:*" >> colord_tmp.pkla
 echo "Action=org.freedesktop.color-manager.create-device;org.freedesktop.color-manager.create-profile;org.freedesktop.color-manager.delete-device;org.freedesktop.color-manager.delete-profile;org.freedesktop.color-manager.modify-device;org.freedesktop.color-manager.modify-profile" >> colord_tmp.pkla
@@ -38,6 +40,7 @@ echo "ResultInactive=no" >> colord_tmp.pkla
 echo "ResultActive=yes" >> colord_tmp.pkla
 
 echo $PASSWORD | sudo -S mv colord_tmp.pkla /etc/polkit-1/localauthority/50-local.d/45-allow-colord.pkla
+
 
 # https://askubuntu.com/questions/1193810/authentication-required-to-refresh-system-repositories-in-ubuntu-19-10
 echo "[Allow Package Management all Users]" > allow_update_repo_tmp.pkla
