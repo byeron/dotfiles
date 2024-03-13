@@ -34,3 +34,8 @@ export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 export FZF_TMUX=1
+
+# fcitx5
+XMODIFIERS=@im=fcitx
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
