@@ -21,11 +21,10 @@ echo $PASSWORD | sudo sed -i -e 's/FuseMountName=thinclient_drives/FuseMountName
 
 # Changed the allowed_users
 if [ ! -e /etc/X11/Xwrapper.config ]; then
-echo $PASSWORD | sudo cat >> /etc/X11/Xwrapper.config << EOF
-allowed_users=anybody
-EOF
+    echo "allowed_users=anybody" > Xwrapper_config_tmp
+    echo $PASSWORD | sudo -S mv Xwrapper_config_tmp /etc/X11/Xwrapper.config
 else
-echo $PASSWORD | sudo sed -i_orig -e 's/allowed_users=console/allowed_users=anybody/g' /etc/X11/Xwrapper.config
+    echo $PASSWORD | sudo -S sed -i_orig -e 's/allowed_users=console/allowed_users=anybody/g' /etc/X11/Xwrapper.config
 fi
 
 # Configure the policy xrdp session
