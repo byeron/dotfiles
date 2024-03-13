@@ -52,5 +52,3 @@ echo "ResultActive=yes" >> allow_update_repo_tmp.pkla
 
 echo $PASSWORD | sudo -S mv allow_update_repo_tmp.pkla /etc/polkit-1/localauthority/50-local.d/46-allow-update-repo.pkla
 
-echo 'source ~/.profile' >> ~/.xsessionrc
-echo 'source ~/.bashrc' >> ~/.xsessionrc
