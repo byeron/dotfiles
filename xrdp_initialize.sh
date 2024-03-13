@@ -31,22 +31,21 @@ fi
 # Configure the policy xrdp session
 if [ -e /etc/polkit-1/localauthority.conf.d/02-allow-colord.conf ]; then
 echo $PASSWORD | sudo rm /etc/polkit-1/localauthority.conf.d/02-allow-colord.conf
+echo "[Allow Colord all Users]" > colord_tmp.pkla
+echo "Identity=unix-user:*" >> colord_tmp.pkla
+echo "Action=org.freedesktop.color-manager.create-device;org.freedesktop.color-manager.create-profile;org.freedesktop.color-manager.delete-device;org.freedesktop.color-manager.delete-profile;org.freedesktop.color-manager.modify-device;org.freedesktop.color-manager.modify-profile" >> colord_tmp.pkla
+echo "ResultAny=no" >> colord_tmp.pkla
+echo "ResultInactive=no" >> colord_tmp.pkla
+echo "ResultActive=yes" >> colord_tmp.pkla
 
-echo $PASSWORD | sudo cat > /etc/polkit-1/localauthority/50-local.d/45-allow-colord.pkla <<EOF
-[Allow Colord all Users]
-Identity=unix-user:*
-Action=org.freedesktop.color-manager.create-device;org.freedesktop.color-manager.create-profile;org.freedesktop.color-manager.delete-device;org.freedesktop.color-manager.delete-profile;org.freedesktop.color-manager.modify-device;org.freedesktop.color-manager.modify-profile
-ResultAny=no
-ResultInactive=no
-ResultActive=yes
-EOF
+echo $PASSWORD | sudo -S mv colord_tmp.pkla /etc/polkit-1/localauthority/50-local.d/45-allow-colord.pkla
 
 # https://askubuntu.com/questions/1193810/authentication-required-to-refresh-system-repositories-in-ubuntu-19-10
-echo $PASSWORD | sudo cat > /etc/polkit-1/localauthority/50-local.d/46-allow-update-repo.pkla<<EOF
-[Allow Package Management all Users]
-Identity=unix-user:*
-Action=org.freedesktop.packagekit.system-sources-refresh
-ResultAny=yes
-ResultInactive=yes
-ResultActive=yes
-EOF
+echo "[Allow Package Management all Users]" > allow_update_repo_tmp.pkla
+echo "Identity=unix-user:*" >> allow_update_repo_tmp.pkla
+echo "Action=org.freedesktop.packagekit.system-sources-refresh" >> allow_update_repo_tmp.pkla
+echo "ResultAny=yes" >> allow_update_repo_tmp.pkla
+echo "ResultInactive=yes" >> allow_update_repo_tmp.pkla
+echo "ResultActive=yes" >> allow_update_repo_tmp.pkla
+
+echo $PASSWORD | sudo -S mv allow_update_repo_tmp.pkla /etc/polkit-1/localauthority/50-local.d/46-allow-update-repo.pkla
