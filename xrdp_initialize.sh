@@ -3,15 +3,27 @@
 echo $PASSWORD | sudo apt update
 echo $PASSWORD | sudo apt install -y xrdp
 
-# ref: https://gihyo.jp/admin/serial/01/ubuntu-recipe/0621
-
-if [ ! -e /etc/xrdp/startubuntu.sh ]; then
-    echo "#!/bin/sh" > startubuntu_tmp.sh
-    echo "export GNOME_SHELL_SESSION_MODE=ubuntu" >> startubuntu_tmp.sh
-    echo "export XDG_CURRENT_DESKTOP=ubuntu:GNOME" >> startubuntu_tmp.sh
-    echo "exec /etc/xrdp/startwm.sh" >> startubuntu_tmp.sh
-    echo $PASSWORD | sudo -S mv startubuntu_tmp.sh /etc/xrdp/startubuntu.sh
-    echo $PASSWORD | sudo -S chmod a+x /etc/xrdp/startubuntu.sh
+if [ ! -e /etc/xrdp/startubuntu.sh ] && [ ! -e /etc/xrdp/startpop.sh ]; then
+    source /etc/os-release
+    if [[ "$NAME" == "Ubuntu"* ]]; then
+        echo "#!/bin/sh" > startubuntu_tmp.sh
+        echo "export GNOME_SHELL_SESSION_MODE=ubuntu" >> startubuntu_tmp.sh
+        echo "export XDG_CURRENT_DESKTOP=ubuntu:GNOME" >> startubuntu_tmp.sh
+        echo "exec /etc/xrdp/startwm.sh" >> startubuntu_tmp.sh
+        echo $PASSWORD | sudo -S mv startubuntu_tmp.sh /etc/xrdp/startubuntu.sh
+        echo $PASSWORD | sudo -S chmod a+x /etc/xrdp/startubuntu.sh
+    elif [[ "$NAME" == "Pop!_OS"* ]]; then
+        echo "#!/bin/sh" > startpop_tmp.sh
+        echo "export GNOME_SHELL_SESSION_MODE=pop" >> startpop_tmp.sh
+        echo "export XDG_CURRENT_DESKTOP=pop:GNOME" >> startpop_tmp.sh
+        echo "export GDM_SESSION=pop" >> startpop_tmp.sh
+        echo "exec /etc/xrdp/startwm.sh" >> startpop_tmp.sh
+        echo $PASSWORD | sudo -S mv startpop_tmp.sh /etc/xrdp/startpop.sh
+        echo $PASSWORD | sudo -S chmod a+x /etc/xrdp/startpop.sh
+    else
+        echo "Unsupported OS."
+        exit 1
+    fi
 fi
 
 echo $PASSWORD | sudo sed -i_orig -e 's/startwm/startubuntu/g' /etc/xrdp/sesman.ini
