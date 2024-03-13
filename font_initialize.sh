@@ -20,4 +20,4 @@ default_profile=$(gsettings get org.gnome.Terminal.ProfilesList default)
 default_profile=${default_profile:1:-1}  # シングルクォートを削除
 
 # デフォルトの設定の ID に対してフォントを設定する
-gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$default_profile/" font 'HackGen Console NF 12'
+gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$default_profile/" font 'HackGen Console NF 14'
