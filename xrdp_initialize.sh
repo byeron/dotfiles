@@ -3,7 +3,7 @@
 echo $PASSWORD | sudo apt update
 echo $PASSWORD | sudo apt install -y xrdp
 
-if [ ! -e /etc/xrdp/startubuntu.sh ] && [ ! -e /etc/xrdp/startpop.sh ]; then
+if [ ! -e /etc/xrdp/startubuntu.sh ]; then
     source /etc/os-release
     if [[ "$NAME" == "Ubuntu"* ]]; then
         echo "#!/bin/sh" > startubuntu_tmp.sh
@@ -18,8 +18,8 @@ if [ ! -e /etc/xrdp/startubuntu.sh ] && [ ! -e /etc/xrdp/startpop.sh ]; then
         echo "export XDG_CURRENT_DESKTOP=pop:GNOME" >> startpop_tmp.sh
         # echo "export GDM_SESSION=pop" >> startpop_tmp.sh
         echo "exec /etc/xrdp/startwm.sh" >> startpop_tmp.sh
-        echo $PASSWORD | sudo -S mv startpop_tmp.sh /etc/xrdp/startpop.sh
-        echo $PASSWORD | sudo -S chmod a+x /etc/xrdp/startpop.sh
+        echo $PASSWORD | sudo -S mv startpop_tmp.sh /etc/xrdp/startubuntu.sh
+        echo $PASSWORD | sudo -S chmod a+x /etc/xrdp/startubuntu.sh
     else
         echo "Unsupported OS."
         exit 1
